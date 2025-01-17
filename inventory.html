@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Sample inventory data
+        const items = [
+            {
+                name: 'Apple',
+                price: '$1.50',
+                description: 'Fresh red apples, sweet and crisp.',
+                image: 'apple.JPG'
+            },
+            {
+                name: 'Banana',
+                price: '$1.00',
+                description: 'Ripe bananas, perfect for smoothies.',
+                image: 'banana.JPG'
+            },
+            {
+                name: 'Orange',
+                price: '$2.00',
+                description: 'Juicy and tangy oranges.',
+                image: 'orange.JPG'
+            }
+        ];
+
+        // Function to display inventory items
+        function displayInventory() {
+            const inventoryContainer = document.getElementById('inventory');
+            items.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('item');
+                itemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <h3>${item.name}</h3>
+                    <p><strong>Price:</strong> ${item.price}</p>
+                    <p><strong>About:</strong> ${item.description}</p>
+                `;
+                inventoryContainer.appendChild(itemElement);
+            });
+        }
+
+        window.onload = displayInventory;
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Inventory</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h2>Available Products</h2>
+        <div id="inventory" class="inventory"></div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Our Store. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
